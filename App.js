@@ -1,4 +1,4 @@
-import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 
 export default function App() {
@@ -8,7 +8,6 @@ export default function App() {
         <TextInput placeholder="Goals!" style={styles.input} />
         <Button title="ADD" />
       </View>
-
       <View></View>
     </View>
   );
