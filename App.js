@@ -4,12 +4,16 @@ import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 export default function App() {
   const [goal, setGoal] = useState("");
 
+  const [goalList, setGoalList] = useState([]);
+
   const goalInputHandler = (enteredText) => {
     setGoal(enteredText);
   };
 
   const addGoalHandler = () => {
-    console.log(goal);
+    // console.log(goal); < -- works
+    //use spread to create new array adding elements of old array
+    setGoalList((currentGoals) => [...currentGoals, goal]);
   };
 
   return (
