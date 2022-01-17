@@ -25,8 +25,10 @@ const GoalInput = (props) => {
           //pass text in, pass back to be displayed
           value={goal}
         />
-        <Button title="CANCEL" onPress={props.onCancel} color="red" />
-        <Button title="ADD" onPress={addGoalHandler} />
+        <View style={styles.buttonContainer}>
+          <Button title="CANCEL" onPress={props.onCancel} color="red" />
+          <Button title="ADD" onPress={addGoalHandler} />
+        </View>
       </View>
     </Modal>
   );
@@ -45,6 +47,9 @@ const styles = StyleSheet.create({
     padding: 10,
     width: "80%",
     marginBottom: 10,
+  },
+  buttonContainer: {
+    flexDirection: "column-reverse",
   },
 });
 
