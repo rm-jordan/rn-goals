@@ -15,8 +15,9 @@ export default function App() {
     //use spread to create new array adding elements of old array
     setGoalList((currentGoals) => [
       ...currentGoals,
-      { key: Math.random().toString(), value: goalName },
+      { id: Math.random().toString(), value: goalName },
     ]);
+    setAddMode(false); // done adding
   };
 
   const removeGoalHandler = (goalId) => {
@@ -25,10 +26,19 @@ export default function App() {
     });
   };
 
+  const cancelGoalHandler = () => {
+    setAddMode(false);
+  };
+
   return (
     <View style={styles.screen}>
       <Button title="Add New Goal" onPress={() => setAddMode(true)} />
-      <GoalInput visible={addMode} onAddGoal={addGoalHandler} />
+      <GoalInput
+        visible={addMode}
+        onCancel={cancelGoalHandler}
+        onAddGoal={addGoalHandler}
+        onCancel={cancelGoalHandler}
+      />
       <FlatList
         keyExtractor={(item, index) => item.id}
         data={goalList}
