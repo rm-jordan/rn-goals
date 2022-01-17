@@ -39,7 +39,9 @@ export default function App() {
         data={goalList}
         renderItem={(itemData) => (
           <GoalItem
-            onDelete={() => console.log("Hello its me!")}
+            onDelete={removeGoalHandler}
+            // ref goalItem
+            id={itemData.item.id}
             title={itemData.item.value}
           />
         )}
