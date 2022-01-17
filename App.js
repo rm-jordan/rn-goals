@@ -1,13 +1,5 @@
 import { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Button,
-  ScrollView,
-  FlatList,
-} from "react-native";
+import { StyleSheet, View, Button, FlatList } from "react-native";
 import GoalInput from "./components/GoalInput";
 
 import GoalItem from "./components/GoalItem";
@@ -15,6 +7,8 @@ import GoalItem from "./components/GoalItem";
 export default function App() {
   //goalList is the array of goals to be displayed
   const [goalList, setGoalList] = useState([]);
+
+  const [addMode, setAddMode] = useState(false);
 
   const addGoalHandler = (goalName) => {
     // console.log(goal); < -- works
@@ -33,7 +27,8 @@ export default function App() {
 
   return (
     <View style={styles.screen}>
-      <GoalInput onAddGoal={addGoalHandler} />
+      <Button title="Add New Goal" onPress={() => setAddMode(true)} />
+      <GoalInput visible={addMode} onAddGoal={addGoalHandler} />
       <FlatList
         keyExtractor={(item, index) => item.id}
         data={goalList}
