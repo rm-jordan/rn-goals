@@ -27,8 +27,9 @@ const GoalInput = (props) => {
 
 const styles = StyleSheet.create({
   inputContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    // allow us to center with all available space
+    flex: 1,
+    justifyContent: "center",
     alignItems: "center",
   },
   input: {
@@ -36,6 +37,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     width: "80%",
+    marginBottom: 10,
   },
 });
 
